@@ -105,7 +105,6 @@
 
         .slider {
             display: flex;
-            width: 100%;
             height: 100%;
             transition: transform 0.5s ease;
         }
@@ -297,6 +296,38 @@
             font-size: 16px;
         }
 
+        /* Image Carousel */
+        .image-carousel {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .image-carousel h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #000;
+        }
+
+        .image-carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .image-carousel-item {
+            min-width: 25%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .image-carousel-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #B8860B;
+        }
+
         /* Client Assurance */
         .client-assurance {
             background: #000;
@@ -404,6 +435,10 @@
                 min-width: 50%;
             }
 
+            .image-carousel-item {
+                min-width: 50%;
+            }
+
             .footer-upper div {
                 width: 45%;
                 margin-bottom: 20px;
@@ -478,6 +513,10 @@
                 min-width: 100%;
             }
 
+            .image-carousel-item {
+                min-width: 100%;
+            }
+
             .footer-upper div {
                 width: 100%;
             }
@@ -503,13 +542,13 @@
 
     <section class="hero">
         <div class="slider">
-            <div class="slide" style="background-image: url('./hero1\ jpg');">
-                <div class="overlay"></div>
-            </div>
             <div class="slide" style="background-image: url('./hero2.jpg');">
                 <div class="overlay"></div>
             </div>
-            <div class="slide" style="background-image: url('./hero3.jpg');">
+            <div class="slide" style="background-image: url('./hero1\ jpg');">
+                <div class="overlay"></div>
+            </div>
+            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/490772063/photo/open-pit-gold-mine-africa.jpg?s=612x612&w=0&k=20&c=3jA3-Z1TElRqd-1cLFm1-ARJDs5UhLhgSA3Qy14ea-s=');">
                 <div class="overlay"></div>
             </div>
         </div>
@@ -632,12 +671,41 @@
         </div>
     </section>
 
+    <section class="image-carousel">
+        <div class="container">
+            <h2>Our Work in Action</h2>
+            <div class="image-carousel-inner">
+                <div class="image-carousel-item">
+                    <img src="https://i.pinimg.com/736x/18/64/04/186404a3f274a14c7073d4238a096c8d.jpg" alt="Drilling Rig">
+                </div>
+                <div class="image-carousel-item">
+                    <img src="https://i.pinimg.com/736x/ba/ad/14/baad14bb4eb25c79a11d75dfa615c2b7.jpg" alt="Mining Equipment">
+                </div>
+                <div class="image-carousel-item">
+                    <img src="https://media.istockphoto.com/id/1285051099/photo/processing-plant-at-a-diamond-mine.jpg?s=612x612&w=0&k=20&c=brxwch0MT7B0bwSQyAoctuOt9F-hKOxaGqFc8RCklg0=" alt="Processing Plant">
+                </div>
+                <div class="image-carousel-item">
+                    <img src="https://i.pinimg.com/1200x/54/56/be/5456be080eb1ab66f18de4aca231dc98.jpg" alt="Open Pit Mine">
+                </div>
+                <div class="image-carousel-item">
+                    <img src="https://i.pinimg.com/736x/66/e2/77/66e27790f8ddbf63f720cccd30c75ce0.jpg" alt="Site Inspection">
+                </div>
+                <div class="image-carousel-item">
+                    <img src="https://i.pinimg.com/1200x/4e/13/0b/4e130bb8a6de8897be1c6226cf0838ce.jpg" alt="Mineral Analysis">
+                </div>
+                <div class="image-carousel-item">
+                    <img src="https://i.pinimg.com/1200x/89/1d/5d/891d5d791bbe065284ac55bc19fa2c7d.jpg" alt="Sustainable Mining">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-upper">
                 <div class="about-us">
                     <h3>About Us</h3>
-                    <p>At Swift Clifts Afrique, we are committed to ensuring mineral transactions are genuine, secure, and transparent. Our due diligence solutions safeguard investors, buyers, and sellers against fraud, hidden risks, and non-compliance.</p>
+                    <p>At Swift Clifts Afrique, we are committed to ensuring mineral transactions are genuine, secure, and transparent. </p>
                 </div>
                 <div class="quick-links">
                     <h3>Quick Links</h3>
@@ -676,12 +744,29 @@
 
         // Hero Slider
         const slider = document.querySelector('.slider');
+        const originalSlides = document.querySelectorAll('.slide');
+        const slides = originalSlides.length;
         let slideIndex = 0;
-        const slides = document.querySelectorAll('.slide').length;
+
+        // Clone slides for seamless loop
+        const clonesNeeded = slides; // Clone all slides to ensure continuity
+        for (let i = 0; i < clonesNeeded; i++) {
+            const clone = originalSlides[i % slides].cloneNode(true);
+            slider.appendChild(clone);
+        }
 
         function nextSlide() {
-            slideIndex = (slideIndex + 1) % slides;
-            slider.style.transform = `translateX(-${slideIndex * (100 / slides)}%)`;
+            slideIndex++;
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+            slider.style.transition = 'transform 0.5s ease';
+
+            if (slideIndex >= slides) {
+                setTimeout(() => {
+                    slider.style.transition = 'none';
+                    slider.style.transform = 'translateX(0)';
+                    slideIndex = 0;
+                }, 500);
+            }
         }
 
         setInterval(nextSlide, 5000);
@@ -693,8 +778,8 @@
         let currentIndex = 0;
 
         // Clone items for seamless loop
-        const clonesNeeded = Math.max(9, totalItems); // Ensure enough clones to fill viewport
-        for (let i = 0; i < clonesNeeded; i++) {
+        const serviceClonesNeeded = Math.max(9, totalItems);
+        for (let i = 0; i < serviceClonesNeeded; i++) {
             const clone = items[i % totalItems].cloneNode(true);
             carouselInner.appendChild(clone);
         }
@@ -715,6 +800,36 @@
         }
 
         setInterval(moveCarousel, 6000);
+
+        // Image Carousel
+        const imageCarouselInner = document.querySelector('.image-carousel-inner');
+        const imageItems = document.querySelectorAll('.image-carousel-item');
+        const totalImageItems = imageItems.length;
+        let imageIndex = 0;
+
+        // Clone items for seamless loop
+        const imageClonesNeeded = Math.max(8, totalImageItems);
+        for (let i = 0; i < imageClonesNeeded; i++) {
+            const clone = imageItems[i % totalImageItems].cloneNode(true);
+            imageCarouselInner.appendChild(clone);
+        }
+
+        function moveImageCarousel() {
+            imageIndex++;
+            const slideWidth = window.innerWidth <= 768 ? 100 : window.innerWidth <= 1024 ? 50 : 25;
+            imageCarouselInner.style.transform = `translateX(-${imageIndex * slideWidth}%)`;
+            imageCarouselInner.style.transition = 'transform 0.5s ease';
+
+            if (imageIndex >= totalImageItems) {
+                setTimeout(() => {
+                    imageCarouselInner.style.transition = 'none';
+                    imageCarouselInner.style.transform = 'translateX(0)';
+                    imageIndex = 0;
+                }, 500);
+            }
+        }
+
+        setInterval(moveImageCarousel, 6000);
     </script>
 </body>
 </html>
