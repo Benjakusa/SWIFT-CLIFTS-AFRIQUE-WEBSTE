@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Clifts Afrique - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background: #B8860B;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            color: #fff;
+            background: #B8860B;
+        }
+
+        .call-btn {
+            background: #B8860B;
+            color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .call-btn:hover {
+            background: #8B6508;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .slide .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .btn {
+            background: #B8860B;
+            color: #000;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .hero-content .btn:hover {
+            background: #8B6508;
+        }
+
+        /* Who We Are */
+        .who-we-are {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .who-we-are .card {
+            background: #fff;
+            box-shadow: 0 0 20px #B8860B;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .who-we-are h2 {
+            font-size: 36px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .who-we-are p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Core Values */
+        .core-values {
+            background: #000;
+            padding: 60px 0;
+            color: #fff;
+        }
+
+        .core-values h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #B8860B;
+        }
+
+        .core-values .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .core-values .card {
+            background: #fff;
+            color: #000;
+            width: 22%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #B8860B;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .core-values .card:hover {
+            transform: scale(1.05);
+        }
+
+        .core-values .card i {
+            font-size: 40px;
+            color: #B8860B;
+            margin-bottom: 15px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .core-values .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .core-values .card p {
+            font-size: 16px;
+        }
+
+        /* Services */
+        .services {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 33.33%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .carousel-item .card {
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .carousel-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item p {
+            font-size: 16px;
+        }
+
+        /* Client Assurance */
+        .client-assurance {
+            background: #000;
+            padding: 60px 0;
+            color: #000;
+        }
+
+        .client-assurance .card {
+            background: #B8860B;
+            box-shadow: 0 0 20px #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .client-assurance p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .client-assurance .btn {
+            background: #000;
+            color: #B8860B;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .client-assurance .btn:hover {
+            background: #333;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        .footer-upper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-upper div {
+            width: 22%;
+            padding: 0 10px;
+        }
+
+        .footer-upper h3 {
+            font-size: 20px;
+            color: #B8860B;
+            margin-bottom: 15px;
+        }
+
+        .footer-upper p, .footer-upper a {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .footer-upper a {
+            color: #B8860B;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-upper a:hover {
+            color: #8B6508;
+        }
+
+        .footer-lower {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-lower p {
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                height: 80vh;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 20px;
+            }
+
+            .core-values .card {
+                width: 45%;
+            }
+
+            .carousel-item {
+                min-width: 50%;
+            }
+
+            .footer-upper div {
+                width: 45%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav, .call-btn {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active, .call-btn.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .call-btn.active {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-content {
+                width: 95%;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-content .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .core-values .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .core-values .card {
+                width: 80%;
+            }
+
+            .carousel-item {
+                min-width: 100%;
+            }
+
+            .footer-upper div {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SWIFT CLIFTS AFRIQUE</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+254790006106" class="call-btn">Call Us</a>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="slider">
+            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/648424048/photo/gold-mines-sudan.jpg?s=612x612&w=0&k=20&c=wL7oIbdef3fleKMxncDq7LV19YOgC3YWYBSlFAWwGpU=');">
+                <div class="overlay"></div>
+            </div>
+            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/1285051099/photo/processing-plant-at-a-diamond-mine.jpg?s=612x612&w=0&k=20&c=brxwch0MT7B0bwSQyAoctuOt9F-hKOxaGqFc8RCklg0=');">
+                <div class="overlay"></div>
+            </div>
+            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/490772063/photo/open-pit-gold-mine-africa.jpg?s=612x612&w=0&k=20&c=3jA3-Z1TElRqd-1cLFm1-ARJDs5UhLhgSA3Qy14ea-s=');">
+                <div class="overlay"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>Swift Clifts Afrique – Your Trusted Due Diligence Partner</h1>
+            <p>Authenticity Guaranteed in Every Deal</p>
+            <a href="#" class="btn">Request a Consultation</a>
+            <a href="tel:+254790006106" class="btn">Call Us Now</a>
+        </div>
+    </section>
+
+    <section class="who-we-are">
+        <div class="container">
+            <div class="card">
+                <h2>Who We Are</h2>
+                <p>Swift Clifts Afrique is a professional advisory and due diligence firm specializing in gold and rare earth mineral transactions across Kenya and Eastern Africa. We do not buy or sell minerals ourselves – our role is to stand by your side, verifying every buyer, seller, and deal to ensure transactions are safe, legal, and beneficial.</p>
+                <p>Our team brings together legal experts, risk analysts, and market advisors with one mission: to protect your investments and safeguard your reputation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="core-values">
+        <div class="container">
+            <h2>Our Core Values</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Transparency</h3>
+                    <p>Every report is based on facts, not assumptions.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Integrity</h3>
+                    <p>We place honesty at the center of all due diligence processes.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Compliance</h3>
+                    <p>We align with local and international mining regulations.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-leaf"></i>
+                    <Muhammad Ali
+                    <h3>Sustainability</h3>
+                    <p>We encourage ethical and environmentally responsible mineral trade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>Snapshot of Our Services</h2>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Registration & License Status</h3>
+                            <p>We thoroughly confirm whether the business or individual is legally registered and holds valid licenses. This ensures compliance with industry standards, legitimacy of operations, and trustworthiness in regulatory frameworks.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Initial Screening</h3>
+                            <p>Our initial screening process assesses the background of businesses or individuals through key identifiers such as ownership, management, and operations, helping clients identify potential risks before committing to any engagement.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Litigation Status</h3>
+                            <p>We conduct comprehensive searches on current and past legal disputes involving the subject. Understanding litigation history provides valuable insights into risks, liabilities, and potential reputational issues affecting future transactions.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Online Support</h3>
+                            <p>Our team provides ongoing online support for clients, enabling them to access timely due diligence reports, updates, and consultations conveniently, ensuring smooth communication and quick response to emerging risk concerns.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Physical Location Verification</h3>
+                            <p>We verify the physical existence and operations of businesses by conducting on-site inspections. This confirms authenticity, operational scale, and helps clients avoid risks associated with shell companies or false representations.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Government Documentation Verification</h3>
+                            <p>We cross-check critical government-issued documents such as incorporation certificates, tax records, and compliance approvals. Authentic document verification ensures all dealings are legal, transparent, and in line with regulatory requirements.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Criminal Record Check</h3>
+                            <p>Our due diligence process includes investigating criminal records of individuals and entities. This ensures clients avoid partnerships with parties involved in fraudulent, illicit, or criminal activities, safeguarding reputation and investments.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Reputation & Media Analysis</h3>
+                            <p>We analyze media reports, news articles, and public opinion to determine the reputation of businesses and individuals. This helps clients anticipate reputational risks and understand stakeholder perceptions before engagement.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <h3>Financial Standing Assessment</h3>
+                            <p>We evaluate the financial health of companies or individuals by reviewing audited statements, creditworthiness, and outstanding liabilities. This provides assurance of stability and reduces exposure to financially distressed partners.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="client-assurance">
+        <div class="container">
+            <div class="card">
+                <p>We understand that mineral trade is a high-risk industry prone to scams, fraud, and misinformation. That is why Swift Clifts Afrique does not participate in buying or selling minerals. Our role is independent verification, compliance checks, and legal advisory – ensuring our clients have a clear, unbiased, and accurate picture before making any commitments.</p>
+                <a href="#" class="btn">Explore Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-upper">
+                <div class="about-us">
+                    <h3>About Us</h3>
+                    <p>At Swift Clifts Afrique, we are committed to ensuring mineral transactions are genuine, secure, and transparent. Our due diligence solutions safeguard investors, buyers, and sellers against fraud, hidden risks, and non-compliance.</p>
+                </div>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="contact-details">
+                    <h3>Contact Details</h3>
+                    <a href="tel:+254790006106">Phone: +254 790 006 106</a>
+                    <a href="mailto:info@swiftcliftsafrique.com">Email: info@swiftcliftsafrique.com</a>
+                </div>
+                <div class="social-media">
+                    <h3>Social Media</h3>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-lower">
+                <p>© 2025 Swift Clifts Afrique – All Rights Reserved powered by OpenDesk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const callBtn = document.querySelector('.call-btn');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            callBtn.classList.toggle('active');
+        });
+
+        // Hero Slider
+        const slider = document.querySelector('.slider');
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide').length;
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % slides;
+            slider.style.transform = `translateX(-${slideIndex * (100 / slides)}%)`;
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // Services Carousel
+        const carouselInner = document.querySelector('.carousel-inner');
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        let currentIndex = 0;
+
+        function moveCarousel() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            carouselInner.style.transition = 'transform 0.5s ease';
+        }
+
+        setInterval(moveCarousel, 6000);
+    </script>
+</body>
+</html>
