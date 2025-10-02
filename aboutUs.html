@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Clifts Afrique - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background: #B8860B;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            color: #fff;
+            background: #B8860B;
+        }
+
+        .call-btn {
+            background: #B8860B;
+            color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .call-btn:hover {
+            background: #8B6508;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Company Overview */
+        .company-overview {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .company-overview h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .company-overview p {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Mission Statement */
+        .mission-statement {
+            background: #000;
+            padding: 60px 0;
+        }
+
+        .mission-statement h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #B8860B;
+        }
+
+        .mission-statement .card {
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-statement p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Vision Statement */
+        .vision-statement {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .vision-statement h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #000;
+        }
+
+        .vision-statement .card {
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .vision-statement p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Core Approach */
+        .core-approach {
+            background: #000;
+            padding: 60px 0;
+        }
+
+        .core-approach h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #B8860B;
+        }
+
+        .core-approach .card {
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .core-approach p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Statistics Snapshot */
+        .statistics {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .statistics h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #000;
+        }
+
+        .statistics .stats-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .statistics .stat-card {
+            width: 23%;
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .statistics .stat-card h3 {
+            font-size: 24px;
+            color: #B8860B;
+            margin-bottom: 10px;
+        }
+
+        .statistics .stat-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Meet Our Team */
+        .team {
+            background: #000;
+            padding: 60px 0;
+        }
+
+        .team h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #B8860B;
+        }
+
+        .team .team-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .team .team-card {
+            width: 31%;
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .team .team-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            object-fit: cover;
+        }
+
+        .team .team-card h3 {
+            font-size: 22px;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .team .team-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        .footer-upper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-upper div {
+            width: 22%;
+            padding: 0 10px;
+        }
+
+        .footer-upper h3 {
+            font-size: 20px;
+            color: #B8860B;
+            margin-bottom: 15px;
+        }
+
+        .footer-upper p, .footer-upper a {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .footer-upper a {
+            color: #B8860B;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-upper a:hover {
+            color: #8B6508;
+        }
+
+        .footer-lower {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-lower p {
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .statistics .stat-card {
+                width: 48%;
+            }
+
+            .team .team-card {
+                width: 48%;
+            }
+
+            .footer-upper div {
+                width: 45%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav, .call-btn {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active, .call-btn.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .call-btn.active {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .statistics .stat-card {
+                width: 100%;
+            }
+
+            .team .team-card {
+                width: 100%;
+            }
+
+            .footer-upper div {
+                width: 100%;
+            }
+
+            .logo img {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><img src="./SWIFT LOGO 2 (1).png" alt="Logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./Services.html">Our Services</a></li>
+                    <li><a href="#" class="active">About Us</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+254790006106" class="call-btn">Call Us</a>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="company-overview">
+        <div class="container">
+            <h2>Company Overview</h2>
+            <p>Swift Clifts Afrique is a specialized due diligence firm dedicated to safeguarding mineral transactions across Africa. We are committed to transparency, compliance, and security, ensuring that every client makes informed decisions.</p>
+        </div>
+    </section>
+
+    <section class="mission-statement">
+        <div class="container">
+            <h2>Mission Statement</h2>
+            <div class="card">
+                <p>“To safeguard the integrity of mineral trading through trusted due diligence, compliance solutions, and advisory services that protect our clients’ investments.”</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-statement">
+        <div class="container">
+            <h2>Vision Statement</h2>
+            <div class="card">
+                <p>“To be Africa’s most trusted partner in due diligence and compliance for mineral transactions, setting global standards of excellence.”</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="core-approach">
+        <div class="container">
+            <h2>Our Core Approach</h2>
+            <div class="card">
+                <p>We combine legal expertise, risk intelligence, and market insights to create a holistic due diligence process. By doing so, we provide clients with more than just verification – we deliver confidence, security, and peace of mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="statistics">
+        <div class="container">
+            <h2>Statistics Snapshot</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>50+</h3>
+                    <p>Trusted Clients</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Cases Handled: Compliance-Focused</p>
+                </div>
+                <div class="stat-card">
+                    <h3>USD $100M+</h3>
+                    <p>Transactions Secured in Verified Mineral Deals</p>
+                </div>
+                <div class="stat-card">
+                    <h3>12+</h3>
+                    <p>International Clients: Countries Served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Eugene Owino">
+                    <h3>Eugene Owino</h3>
+                    <p>Advocate of the High Court, specialist in contract law.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Danielle Carrol">
+                    <h3>Danielle Carrol</h3>
+                    <p>Advocate of the High Court, expert in cross-border compliance.</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="George Mokaya">
+                    <h3>George Mokaya</h3>
+                    <p>Risk Analyst, focused on fraud detection and risk intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-upper">
+                <div class="about-us">
+                    <h3>About Us</h3>
+                    <p>At Swift Clifts Afrique, we are committed to ensuring mineral transactions are genuine, secure, and transparent. Our due diligence solutions safeguard investors, buyers, and sellers against fraud, hidden risks, and non-compliance.</p>
+                </div>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="contact-details">
+                    <h3>Contact Details</h3>
+                    <a href="tel:+254790006106">Phone: +254 790 006 106</a>
+                    <a href="mailto:info@swiftcliftsafrique.com">Email: info@swiftcliftsafrique.com</a>
+                </div>
+                <div class="social-media">
+                    <h3>Social Media</h3>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-lower">
+                <p>© 2025 Swift Clifts Afrique – All Rights Reserved powered by OpenDesk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const callBtn = document.querySelector('.call-btn');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            callBtn.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

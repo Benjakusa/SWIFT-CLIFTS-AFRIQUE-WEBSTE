@@ -40,9 +40,13 @@
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
         }
 
         nav ul {
@@ -520,19 +524,23 @@
             .footer-upper div {
                 width: 100%;
             }
+
+            .logo img {
+                width: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">SWIFT CLIFTS AFRIQUE</div>
+            <div class="logo"><img src="./SWIFT LOGO 2 (1).png" alt="Logo"></div>
             <nav>
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="Services.html">About Us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="./Services.html">Our Services</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
                 </ul>
             </nav>
             <a href="tel:+254790006106" class="call-btn">Call Us</a>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Clifts Afrique - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background: #B8860B;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            color: #fff;
+            background: #B8860B;
+        }
+
+        .call-btn {
+            background: #B8860B;
+            color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .call-btn:hover {
+            background: #8B6508;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Consultation & Contact Info */
+        .contact-info {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .contact-info h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .contact-info .card {
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-info .card p {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .contact-info .card p i {
+            color: #B8860B;
+            margin-right: 10px;
+        }
+
+        .contact-info .consultation-btn {
+            display: inline-block;
+            background: #B8860B;
+            color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .contact-info .consultation-btn:hover {
+            background: #8B6508;
+            transform: translateY(-2px);
+        }
+
+        /* Consultation Form */
+        .consultation-form {
+            background: #000;
+            padding: 60px 0;
+        }
+
+        .consultation-form h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #B8860B;
+        }
+
+        .consultation-form .card {
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .consultation-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .consultation-form form label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .consultation-form form input,
+        .consultation-form form select,
+        .consultation-form form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .consultation-form form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .consultation-form form button {
+            background: #B8860B;
+            color: #000;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .consultation-form form button:hover {
+            background: #8B6508;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        .footer-upper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-upper div {
+            width: 22%;
+            padding: 0 10px;
+        }
+
+        .footer-upper h3 {
+            font-size: 20px;
+            color: #B8860B;
+            margin-bottom: 15px;
+        }
+
+        .footer-upper p, .footer-upper a {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .footer-upper a {
+            color: #B8860B;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-upper a:hover {
+            color: #8B6508;
+        }
+
+        .footer-lower {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-lower p {
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-info .card,
+            .consultation-form .card {
+                max-width: 100%;
+            }
+
+            .footer-upper div {
+                width: 45%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav, .call-btn {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active, .call-btn.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .call-btn.active {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .footer-upper div {
+                width: 100%;
+            }
+
+            .logo img {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><img src="./SWIFT LOGO 2 (1).png" alt="Logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./Services.html">Our Services</a></li>
+                    <li><a href="./aboutUs.html">About Us</a></li>
+                    <li><a href="#" class="active">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+254790006106" class="call-btn">Call Us</a>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="contact-info">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="card">
+                <p>Ready to secure your next mineral transaction? Reach out to us today for a personalized consultation.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Office: Upper Hill - Lower Duplex, Nairobi, Kenya</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@swiftcliftsafrique.com">info@swiftcliftsafrique.com</a> | <a href="mailto:hello@swiftcliftsafrique.com">hello@swiftcliftsafrique.com</a></p>
+                <p><i class="fas fa-clock"></i> Hours: Mon–Sat: 8am–6pm | Sun: 11am–4pm</p>
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+254790006106">+254 790 006 106</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="consultation-form" id="consultation-form">
+        <div class="container">
+            <h2>Book a Consultation</h2>
+            <div class="card">
+                <form action="mailto:info@swiftcliftsafrique.com" method="post" enctype="text/plain">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                    
+                    <label for="contact">Contact</label>
+                    <input type="text" id="contact" name="contact" required placeholder="Email or Phone">
+                    
+                    <label for="service">Service</label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Select a Service</option>
+                        <option value="Due Diligence & Verification">Due Diligence & Verification</option>
+                        <option value="Company & Transaction Verification">Company & Transaction Verification</option>
+                        <option value="Risk Intelligence & Compliance">Risk Intelligence & Compliance</option>
+                        <option value="Financial Crime & Anti-Fraud Checks">Financial Crime & Anti-Fraud Checks</option>
+                        <option value="Market & Transaction Advisory">Market & Transaction Advisory</option>
+                        <option value="Legal Advisory & Support">Legal Advisory & Support</option>
+                        <option value="Cross-Border Trade & Regulatory Compliance">Cross-Border Trade & Regulatory Compliance</option>
+                        <option value="ESG & Ethical Standards">ESG & Ethical Standards</option>
+                    </select>
+                    
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-upper">
+                <div class="about-us">
+                    <h3>About Us</h3>
+                    <p>At Swift Clifts Afrique, we are committed to ensuring mineral transactions are genuine, secure, and transparent. Our due diligence solutions safeguard investors, buyers, and sellers against fraud, hidden risks, and non-compliance.</p>
+                </div>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="contact-details">
+                    <h3>Contact Details</h3>
+                    <a href="tel:+254790006106">Phone: +254 790 006 106</a>
+                    <a href="mailto:info@swiftcliftsafrique.com">Email: info@swiftcliftsafrique.com</a>
+                </div>
+                <div class="social-media">
+                    <h3>Social Media</h3>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-lower">
+                <p>© 2025 Swift Clifts Afrique – All Rights Reserved powered by OpenDesk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const callBtn = document.querySelector('.call-btn');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            callBtn.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
