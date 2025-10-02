@@ -143,7 +143,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Contact
 
 **Swift Clifts Afrique – Due Diligence & Advisory**
-Website: [www.swiftcliftafrique.com](http://www.swiftcliftafrique.com)
+Website: [www.swiftclifstafrique.com](http://www.swiftclifstafrique.com)
 Email: [ben@opendesk.co.ke](mailto:ben@opendesk.co.ke)
 Phone: +254 722 839 617
 Developer: Benard Oloo Ochieng – Software Engineer
