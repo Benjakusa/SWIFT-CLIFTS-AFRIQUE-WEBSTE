@@ -105,7 +105,7 @@
 
         .slider {
             display: flex;
-            width: 300%;
+            width: 100%;
             height: 100%;
             transition: transform 0.5s ease;
         }
@@ -125,7 +125,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.1);
         }
 
         .hero-content {
@@ -503,13 +503,13 @@
 
     <section class="hero">
         <div class="slider">
-            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/648424048/photo/gold-mines-sudan.jpg?s=612x612&w=0&k=20&c=wL7oIbdef3fleKMxncDq7LV19YOgC3YWYBSlFAWwGpU=');">
+            <div class="slide" style="background-image: url('./hero1\ jpg');">
                 <div class="overlay"></div>
             </div>
-            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/1285051099/photo/processing-plant-at-a-diamond-mine.jpg?s=612x612&w=0&k=20&c=brxwch0MT7B0bwSQyAoctuOt9F-hKOxaGqFc8RCklg0=');">
+            <div class="slide" style="background-image: url('./hero2.jpg');">
                 <div class="overlay"></div>
             </div>
-            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/490772063/photo/open-pit-gold-mine-africa.jpg?s=612x612&w=0&k=20&c=3jA3-Z1TElRqd-1cLFm1-ARJDs5UhLhgSA3Qy14ea-s=');">
+            <div class="slide" style="background-image: url('./hero3.jpg');">
                 <div class="overlay"></div>
             </div>
         </div>
@@ -552,7 +552,6 @@
                 </div>
                 <div class="card">
                     <i class="fas fa-leaf"></i>
-                    <Muhammad Ali
                     <h3>Sustainability</h3>
                     <p>We encourage ethical and environmentally responsible mineral trade.</p>
                 </div>
@@ -693,10 +692,26 @@
         const totalItems = items.length;
         let currentIndex = 0;
 
+        // Clone items for seamless loop
+        const clonesNeeded = Math.max(9, totalItems); // Ensure enough clones to fill viewport
+        for (let i = 0; i < clonesNeeded; i++) {
+            const clone = items[i % totalItems].cloneNode(true);
+            carouselInner.appendChild(clone);
+        }
+
         function moveCarousel() {
-            currentIndex = (currentIndex + 1) % totalItems;
-            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            currentIndex++;
+            const slideWidth = window.innerWidth <= 768 ? 100 : window.innerWidth <= 1024 ? 50 : 33.33;
+            carouselInner.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
             carouselInner.style.transition = 'transform 0.5s ease';
+
+            if (currentIndex >= totalItems) {
+                setTimeout(() => {
+                    carouselInner.style.transition = 'none';
+                    carouselInner.style.transform = 'translateX(0)';
+                    currentIndex = 0;
+                }, 500);
+            }
         }
 
         setInterval(moveCarousel, 6000);
