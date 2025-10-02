@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Clifts Afrique - Our Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+            background: #B8860B;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            color: #fff;
+            background: #B8860B;
+        }
+
+        .call-btn {
+            background: #B8860B;
+            color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .call-btn:hover {
+            background: #8B6508;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Services */
+        .services {
+            background: #fff;
+            padding: 60px 0;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .services p {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .services .service-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .services .service-card {
+            width: 48%;
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .services .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .services .service-card .service-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .services .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .services .service-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #000;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #B8860B;
+        }
+
+        .testimonials .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .testimonials .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonials .carousel-item {
+            min-width: 33.33%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .testimonials .carousel-item .card {
+            background: #fff;
+            box-shadow: 0 0 15px #B8860B;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .testimonials .carousel-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            object-fit: cover;
+        }
+
+        .testimonials .carousel-item p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .testimonials .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .testimonials .carousel-nav button {
+            background: #B8860B;
+            color: #000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .testimonials .carousel-nav button:hover {
+            background: #8B6508;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        .footer-upper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-upper div {
+            width: 22%;
+            padding: 0 10px;
+        }
+
+        .footer-upper h3 {
+            font-size: 20px;
+            color: #B8860B;
+            margin-bottom: 15px;
+        }
+
+        .footer-upper p, .footer-upper a {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .footer-upper a {
+            color: #B8860B;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-upper a:hover {
+            color: #8B6508;
+        }
+
+        .footer-lower {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-lower p {
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services .service-card {
+                width: 100%;
+            }
+
+            .testimonials .carousel-item {
+                min-width: 50%;
+            }
+
+            .footer-upper div {
+                width: 45%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-wrap: wrap;
+            }
+
+            nav, .call-btn {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active, .call-btn.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .call-btn.active {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .testimonials .carousel-item {
+                min-width: 100%;
+            }
+
+            .footer-upper div {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SWIFT CLIFTS AFRIQUE</div>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="#" class="active">Our Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+254790006106" class="call-btn">Call Us</a>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="container">
+            <h2>What We Do</h2>
+            <p>Swift Clifts Afrique offers a comprehensive range of due diligence and advisory services designed to protect clients engaged in mineral transactions. Our work ensures that buyers, sellers, and investors are safeguarded from fraud, regulatory issues, and reputational damage.</p>
+            <p>We deliver actionable intelligence, clear legal guidance, and trusted verification to support confident and profitable decision-making.</p>
+            <div class="service-row">
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/1140500589/photo/gold-mine-site-in-the-australian-outback.jpg?s=612x612&w=0&k=20&c=5mO4z8rZ8m8z6bZ7y3q6Y7X9z8Y0z1q2w3r4t5y6u7=" alt="Due Diligence">
+                    <div class="service-content">
+                        <h3>Due Diligence & Verification</h3>
+                        <p>We provide thorough due diligence investigations on mineral traders and companies before any business engagement. This process involves conducting comprehensive background checks, verifying identities, and analyzing business reputations across different markets. Our team compiles detailed due diligence reports that highlight the credibility, history, and integrity of potential partners. By uncovering hidden risks and validating the legitimacy of traders, we help clients avoid costly mistakes and establish partnerships with only genuine and trustworthy entities.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/1151597550/photo/drilling-rig-in-a-mine.jpg?s=612x612&w=0&k=20&c=3q2w4e5r6t7y8u9i0o1p2a3s4d5f6g7h8j9k0l1m2n3=" alt="Company Verification">
+                    <div class="service-content">
+                        <h3>Company & Transaction Verification</h3>
+                        <p>Our verification services go beyond basic checks. We validate company registrations, licenses, ownership structures, and compliance with mining regulations in relevant jurisdictions. Additionally, we examine past business transactions and trading records to evaluate consistency and reliability. Fraud indicators, inconsistencies, or high-risk red flags are identified early, empowering our clients to make decisions with confidence. This ensures that every transaction is conducted with partners who are authentic, compliant, and transparent in their dealings.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-row">
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/1217348642/photo/mining-equipment-in-african-mine.jpg?s=612x612&w=0&k=20&c=6y7u8i9o0p1a2s3d4f5g6h7j8k9l0z1x2c3v4b5n6m7=" alt="Risk Intelligence">
+                    <div class="service-content">
+                        <h3>Risk Intelligence & Compliance</h3>
+                        <p>We take a proactive approach to risk identification and management. Our compliance experts assess legal and regulatory gaps in proposed transactions, highlighting areas where exposure may exist. We also examine vulnerabilities to financial crimes such as money laundering, corruption, or illegal mineral sourcing. By addressing political, reputational, and operational risks in advance, we protect our clients from unexpected challenges, legal disputes, and potential disruptions to their businesses.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/1285051099/photo/processing-plant-at-a-diamond-mine.jpg?s=612x612&w=0&k=20&c=brxwch0MT7B0bwSQyAoctuOt9F-hKOxaGqFc8RCklg0=" alt="Anti-Fraud Checks">
+                    <div class="service-content">
+                        <h3>Financial Crime & Anti-Fraud Checks</h3>
+                        <p>The mineral trade is often targeted by fraudulent schemes and financial crimes. We deploy advanced tools to detect suspicious activities, enforce anti-money laundering (AML) compliance, and identify fraudulent practices. Our specialized fraud-check systems help trace inconsistencies in documents, verify trade authenticity, and ensure compliance with both local and international anti-crime regulations. This layer of protection safeguards investors and traders from reputational damage and financial losses linked to illicit dealings.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-row">
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/490772063/photo/open-pit-gold-mine-africa.jpg?s=612x612&w=0&k=20&c=3jA3-Z1TElRqd-1cLFm1-ARJDs5UhLhgSA3Qy14ea-s=" alt="Market Advisory">
+                    <div class="service-content">
+                        <h3>Market & Transaction Advisory</h3>
+                        <p>The mineral market, particularly in gold and rare earths, is highly dynamic and can shift rapidly. Our advisory team provides clients with insights into global market trends, demand forecasts, and price evaluations. We analyze trade patterns and transaction structures to recommend safe, efficient, and profitable business strategies. Clients benefit from timely and practical advice that helps them negotiate deals, structure transactions securely, and maximize returns while minimizing exposure to volatility and risks.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/1140500589/photo/mining-site-inspection.jpg?s=612x612&w=0&k=20&c=9m8n7b6v5c4x3z2a1q0w9e8r7t6y5u4i3o2p1l0k9j=" alt="Legal Advisory">
+                    <div class="service-content">
+                        <h3>Legal Advisory & Support</h3>
+                        <p>Our legal team specializes in bridging the gap between mineral trade operations and compliance requirements. We offer end-to-end legal support including contract drafting and review to ensure fairness and enforceability. Additionally, we guide clients in meeting both local and international mining laws, while implementing anti-fraud and AML frameworks. In case of disputes, we provide negotiation, mediation, or litigation support. We also secure intellectual property and ownership rights, ensuring clients retain control over their mineral projects and assets.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-row">
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/1151597550/photo/mineral-analysis-lab.jpg?s=612x612&w=0&k=20&c=1q2w3e4r5t6y7u8i9o0p1a2s3d4f5g6h7j8k9l0z1x=" alt="Cross-Border Compliance">
+                    <div class="service-content">
+                        <h3>Cross-Border Trade & Regulatory Compliance</h3>
+                        <p>International mineral transactions involve complex regulations, and non-compliance can result in severe financial and legal consequences. We assist clients in navigating diverse mining laws, export requirements, and trade restrictions across multiple jurisdictions. By offering clear compliance roadmaps, we eliminate uncertainties and ensure smooth, uninterrupted operations. Whether clients are buying, selling, or investing across borders, our expertise ensures transactions remain fully compliant, reducing exposure to costly penalties or delays.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://media.istockphoto.com/id/1217348642/photo/sustainable-mining-practices.jpg?s=612x612&w=0&k=20&c=2c3v4b5n6m7y8u9i0o1p2a3s4d5f6g7h8j9k0l1m2n3=" alt="ESG Standards">
+                    <div class="service-content">
+                        <h3>ESG & Ethical Standards</h3>
+                        <p>We recognize the broader social and environmental impact of mineral trade. Our approach ensures that every transaction aligns with environmental, social, and governance (ESG) principles. This includes encouraging eco-friendly mining practices that minimize ecological damage, supporting fair labor and community development, and ensuring transparent governance across operations. By integrating ethical standards into the due diligence process, we help clients build reputations as responsible industry leaders while safeguarding communities and preserving the environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Corporate Investor">
+                            <p>"Working with Swift Clifts Afrique completely changed how we approach mineral investments. Their due diligence process was thorough and transparent, uncovering risks and inconsistencies we would have easily overlooked. Because of their expertise, we were able to proceed with confidence in a multi-million-dollar gold transaction, knowing every detail had been verified. Their professionalism and commitment gave us peace of mind and saved us from potential financial loss."</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Legal Advisor">
+                            <p>"As a legal advisor, I have seen many clients nearly fall victim to fraudulent mineral trade deals. Partnering with Swift Clifts Afrique has been a game-changer. Their compliance and verification services provided strong evidence that protected our client from a highly suspicious transaction. Their team’s ability to detect fraud indicators, check regulatory compliance, and provide clear recommendations makes them an invaluable partner. We now rely on Swift Clifts for all due diligence matters related to mineral trade."</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Private Buyer">
+                            <p>"I was completely new to investing in rare earth minerals and didn’t know where to start. Swift Clifts Afrique guided me patiently through the entire process. They helped me understand market trends, verified the credibility of traders, and explained the risks involved with absolute clarity. Their advisory services ensured I was never left in the dark. I felt informed, secure, and confident about every step I took. Without their support, I would not have had the courage to make my first successful investment."</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="NGO Representative">
+                            <p>"Our organization partners with communities to promote responsible mining, and we value companies that share the same ethical vision. Swift Clifts Afrique consistently demonstrates their commitment to ESG principles by ensuring mineral trade respects environmental protection, fair labor practices, and community well-being. Their approach proves that profit and responsibility can coexist. By working with them, we ensure our projects align with sustainability and ethical business practices, creating a positive impact that goes far beyond financial gain."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-upper">
+                <div class="about-us">
+                    <h3>About Us</h3>
+                    <p>At Swift Clifts Afrique, we are committed to ensuring mineral transactions are genuine, secure, and transparent. Our due diligence solutions safeguard investors, buyers, and sellers against fraud, hidden risks, and non-compliance.</p>
+                </div>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">Services</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="contact-details">
+                    <h3>Contact Details</h3>
+                    <a href="tel:+254790006106">Phone: +254 790 006 106</a>
+                    <a href="mailto:info@swiftcliftsafrique.com">Email: info@swiftcliftsafrique.com</a>
+                </div>
+                <div class="social-media">
+                    <h3>Social Media</h3>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="footer-lower">
+                <p>© 2025 Swift Clifts Afrique – All Rights Reserved powered by OpenDesk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        const callBtn = document.querySelector('.call-btn');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            callBtn.classList.toggle('active');
+        });
+
+        // Testimonials Carousel
+        const testimonialCarouselInner = document.querySelector('.testimonials .carousel-inner');
+        const testimonialItems = document.querySelectorAll('.testimonials .carousel-item');
+        const totalTestimonialItems = testimonialItems.length;
+        let testimonialIndex = 0;
+
+        // Clone items for seamless loop
+        const testimonialClonesNeeded = Math.max(4, totalTestimonialItems);
+        for (let i = 0; i < testimonialClonesNeeded; i++) {
+            const clone = testimonialItems[i % totalTestimonialItems].cloneNode(true);
+            testimonialCarouselInner.appendChild(clone);
+        }
+
+        function moveTestimonialCarousel() {
+            testimonialIndex++;
+            const slideWidth = window.innerWidth <= 768 ? 100 : 33.33;
+            testimonialCarouselInner.style.transform = `translateX(-${testimonialIndex * slideWidth}%)`;
+            testimonialCarouselInner.style.transition = 'transform 0.5s ease';
+
+            if (testimonialIndex >= totalTestimonialItems) {
+                setTimeout(() => {
+                    testimonialCarouselInner.style.transition = 'none';
+                    testimonialCarouselInner.style.transform = 'translateX(0)';
+                    testimonialIndex = 0;
+                }, 500);
+            }
+        }
+
+        // Manual navigation for testimonials
+        const prevButton = document.querySelector('.testimonials .carousel-nav .prev');
+        const nextButton = document.querySelector('.testimonials .carousel-nav .next');
+
+        prevButton.addEventListener('click', () => {
+            testimonialIndex--;
+            const slideWidth = window.innerWidth <= 768 ? 100 : 33.33;
+            if (testimonialIndex < 0) {
+                testimonialCarouselInner.style.transition = 'none';
+                testimonialIndex = totalTestimonialItems - 1;
+                testimonialCarouselInner.style.transform = `translateX(-${testimonialIndex * slideWidth}%)`;
+                setTimeout(() => {
+                    testimonialCarouselInner.style.transition = 'transform 0.5s ease';
+                }, 0);
+            } else {
+                testimonialCarouselInner.style.transform = `translateX(-${testimonialIndex * slideWidth}%)`;
+                testimonialCarouselInner.style.transition = 'transform 0.5s ease';
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            moveTestimonialCarousel();
+        });
+
+        setInterval(moveTestimonialCarousel, 6000);
+    </script>
+</body>
+</html>
